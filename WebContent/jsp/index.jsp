@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>Resteasy example</h1>
-<a href=stub.html>stub</a>
+<a href=stub.html?service=get>get</a>
+<a href=stub.html?service=post>post</a>
 </body>
 </html>

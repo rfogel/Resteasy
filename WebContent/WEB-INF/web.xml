@@ -4,30 +4,32 @@
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value/>
-    </context-param>
-    <servlet>
+    <servlet> 
 		<servlet-name>Jersey Web Application</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.resourceConfigClass</param-name>
 			<param-value>com.sun.jersey.api.core.PackagesResourceConfig</param-value>
-		</init-param>
+		</init-param>  
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
 			<param-value>webservices</param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>0</load-on-startup> 
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Jersey Web Application</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/services/*</url-pattern>
 	</servlet-mapping>
+	 <servlet>
+        <servlet-name>web</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>web</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>/jsp/index.jsp</welcome-file>
     </welcome-file-list>
