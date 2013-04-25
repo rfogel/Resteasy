@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientHandlerException;
-import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
 
 @Controller
-@RequestMapping("stub.html")
-public class Stub
+@RequestMapping("stub01.html")
+public class Stub01
 {
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
@@ -41,8 +40,7 @@ public class Stub
 		{
 			Client client = Client.create();
 			WebResource resource = client.resource("http://192.168.1.119:8080/Resteasy/services/stub01/get");
-			ClientResponse response = resource.path("rafael").get(ClientResponse.class);
-			String result = response.getEntity(String.class);
+			String result = resource.path("rafael").get(String.class);
 			
 			return result;
 			
@@ -59,8 +57,7 @@ public class Stub
 		{
 			Client client = Client.create();
 			WebResource resource = client.resource("http://192.168.1.119:8080/Resteasy/services/stub01/post");
-			ClientResponse response = resource.path("rafael").get(ClientResponse.class);
-			String result = response.getEntity(String.class);
+			String result = resource.path("rafael").post(String.class);
 			
 			return result;
 			
