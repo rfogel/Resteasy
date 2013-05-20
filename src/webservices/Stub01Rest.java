@@ -27,4 +27,13 @@ public class Stub01Rest
 	{
 		return "Stub01 POST Message for " + userName;
 	}
+	
+	@POST
+	@Consumes("text/plain")
+	@Produces("text/plain")
+	@Path("/post")
+	public String postService2(String userName) 
+	{
+		return "Stub01 POST2 Message for " + userName;
+	}
 }
